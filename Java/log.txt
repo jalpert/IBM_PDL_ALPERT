@@ -1,0 +1,267 @@
+ [x] Waiting for messages on PDL Incoming. To exit press CTRL+C
+ [x] Received 'PDL Container;PDL-1.mp4;30'
+ [x] Successfully downloaded PDL-1.mp4
+Working Directory: /home/pi/Desktop/PDL
+Timestamp: 2017-07-21 00:13:26.401822
+Reading all 921 frames took 10.061771 seconds. That is 91.5345817352 frames per second
+Processing all 922 frames took 4.877791 seconds. That is 189.019988761 frames per second
+Csenter (T, w, TAU, A, p): (1.2771959576134921, 4.9195154977784679, 9.08917610743163, 22.302726727239598, 0.2967852721020266)
+ [x] Process completed. Any errors? No
+ [x] Sent All Done! back to client
+ [x] Received 'PDL Container;PDL-2.mp4;30'
+ [x] Successfully downloaded PDL-2.mp4
+Working Directory: /home/pi/Desktop/PDL
+Timestamp: 2017-07-21 00:13:50.510130
+Reading all 887 frames took 9.037026 seconds. That is 98.1517592181 frames per second
+Processing all 888 frames took 3.697744 seconds. That is 240.146424414 frames per second
+Csenter (T, w, TAU, A, p): (1.3273809028104386, 4.7335209463058536, 12.453926583781319, 13.916744750618713, 0.50846921236735643)
+ [x] Process completed. Any errors? No
+ [x] Sent All Done! back to client
+ [x] Received 'PDL Container;PDL-3.mp4;30'
+ [x] Successfully downloaded PDL-3.mp4
+Working Directory: /home/pi/Desktop/PDL
+Timestamp: 2017-07-21 00:14:12.811916
+Reading all 920 frames took 9.526747 seconds. That is 96.5702143659 frames per second
+Processing all 921 frames took 4.872346 seconds. That is 189.025984608 frames per second
+Csenter (T, w, TAU, A, p): (1.2918324650285036, 4.863777213588568, 9.6639349272435489, -20.670214619769411, 0.54905951641850193)
+ [x] Process completed. Any errors? No
+ [x] Sent All Done! back to client
+ [x] Received 'PDL Container;PDL-4.mp4;30'
+ [x] Successfully downloaded PDL-4.mp4
+Working Directory: /home/pi/Desktop/PDL
+Timestamp: 2017-07-21 00:14:39.058020
+Reading all 906 frames took 9.345966 seconds. That is 96.9402199837 frames per second
+Processing all 907 frames took 4.851997 seconds. That is 186.933338994 frames per second
+Csenter (T, w, TAU, A, p): (1.3021582218255858, 4.8252087971081989, 10.308737472494027, 26.413357092097222, 0.55882834768684853)
+ [x] Process completed. Any errors? No
+ [x] Sent All Done! back to client
+ [x] Received 'PDL Container;PDL-5.mp4;30'
+ [x] Successfully downloaded PDL-5.mp4
+Working Directory: /home/pi/Desktop/PDL
+Timestamp: 2017-07-21 00:15:04.887870
+Reading all 968 frames took 10.04908 seconds. That is 96.3272259749 frames per second
+Processing all 969 frames took 4.831247 seconds. That is 200.569335412 frames per second
+Csenter (T, w, TAU, A, p): (1.3118364561642453, 4.7896102274450856, 10.87774492220103, -30.743874872468869, 0.44940468222542218)
+ [x] Process completed. Any errors? No
+ [x] Sent All Done! back to client
+ [x] Received 'PDL Container;PDL-6.mp4;30'
+ [x] Successfully downloaded PDL-6.mp4
+Working Directory: /home/pi/Desktop/PDL
+Timestamp: 2017-07-21 00:15:28.861348
+Reading all 979 frames took 10.077418 seconds. That is 97.1479003848 frames per second
+Processing all 980 frames took 5.25648 seconds. That is 186.436550696 frames per second
+Csenter (T, w, TAU, A, p): (1.3074193945293922, 4.805791724881999, 10.150055464880301, 31.139435878936098, 0.15656513862063129)
+ [x] Process completed. Any errors? No
+ [x] Sent All Done! back to client
+ [x] Received 'PDL Container;PDL-7.mp4;30'
+ [x] Successfully downloaded PDL-7.mp4
+Working Directory: /home/pi/Desktop/PDL
+Timestamp: 2017-07-21 00:15:52.050318
+Reading all 932 frames took 10.316297 seconds. That is 90.342494017 frames per second
+Processing all 933 frames took 4.980452 seconds. That is 187.33239473 frames per second
+Csenter (T, w, TAU, A, p): (0.26164608675379858, 24.014061838776449, nan, nan, 0.85018162261570296)
+ [x] Process completed. Any errors? No
+ [x] Sent All Done! back to client
+ [x] Received 'PDL Container;PDL-8.mp4;30'
+ [x] Successfully downloaded PDL-8.mp4
+Working Directory: /home/pi/Desktop/PDL
+Timestamp: 2017-07-21 00:16:14.948230
+Reading all 992 frames took 11.141754 seconds. That is 89.0344554367 frames per second
+Processing all 993 frames took 5.613616 seconds. That is 176.891329938 frames per second
+Csenter (T, w, TAU, A, p): (1.3593137466545142, 4.6223216109183749, 10.679175793928524, 33.032403774302814, 0.022672630316894468)
+ [x] Process completed. Any errors? No
+ [x] Sent All Done! back to client
+ [x] Received 'PDL Container;PDL-9.mp4;30'
+ [x] Successfully downloaded PDL-9.mp4
+Working Directory: /home/pi/Desktop/PDL
+Timestamp: 2017-07-21 00:16:38.711513
+Reading all 755 frames took 7.952954 seconds. That is 94.9332788798 frames per second
+Processing all 756 frames took 3.131905 seconds. That is 241.386632098 frames per second
+Csenter (T, w, TAU, A, p): (1.2803850961260916, 4.9072621402653542, 5.0061049648396345, -27.633211997569671, 0.16080086045125858)
+ [x] Process completed. Any errors? No
+ [x] Sent All Done! back to client
+ [x] Received 'PDL Container;PDL-10.mp4;30'
+ [x] Successfully downloaded PDL-10.mp4
+Working Directory: /home/pi/Desktop/PDL
+Timestamp: 2017-07-21 00:17:01.147618
+Reading all 746 frames took 8.17563 seconds. That is 91.2467907672 frames per second
+Processing all 747 frames took 2.865285 seconds. That is 260.707050084 frames per second
+Csenter (T, w, TAU, A, p): (1.223060542231309, 5.1372643382941305, nan, nan, 0.072819499308784633)
+ [x] Process completed. Any errors? No
+ [x] Sent All Done! back to client
+ [x] Received 'PDL Container;PDL-11.mp4;30'
+ [x] Successfully downloaded PDL-11.mp4
+Working Directory: /home/pi/Desktop/PDL
+Timestamp: 2017-07-21 00:17:22.104849
+Reading all 1095 frames took 11.192203 seconds. That is 97.8359666993 frames per second
+Processing all 1096 frames took 7.542594 seconds. That is 145.308099574 frames per second
+Csenter (T, w, TAU, A, p): (0.17378248632960891, 36.155457548595692, nan, nan, 0.017287042203195411)
+ [x] Process completed. Any errors? No
+ [x] Sent All Done! back to client
+ [x] Received 'PDL Container;PDL-12.mp4;30'
+ [x] Successfully downloaded PDL-12.mp4
+Working Directory: /home/pi/Desktop/PDL
+Timestamp: 2017-07-21 00:17:49.127251
+Reading all 959 frames took 9.87171 seconds. That is 97.1462897512 frames per second
+Processing all 960 frames took 5.628688 seconds. That is 170.554843331 frames per second
+Csenter (T, w, TAU, A, p): (0.22066766183839975, 28.473521017234116, nan, nan, 0.0049055533857745685)
+ [x] Process completed. Any errors? No
+ [x] Sent All Done! back to client
+ [x] Received 'PDL Container;PDL-13.mp4;30'
+ [x] Successfully downloaded PDL-13.mp4
+Working Directory: /home/pi/Desktop/PDL
+Timestamp: 2017-07-21 00:18:11.893643
+Reading all 301 frames took 3.419027 seconds. That is 88.0367426171 frames per second
+Processing all 302 frames took 1.460314 seconds. That is 206.804837864 frames per second
+Csenter (T, w, TAU, A, p): (1.381616580013064, 4.5477054908534571, 22.318757817738003, 33.705940477749671, 0.34362120726114909)
+ [x] Process completed. Any errors? No
+ [x] Sent All Done! back to client
+ [x] Received 'PDL Container;PDL-14.mp4;30'
+ [x] Successfully downloaded PDL-14.mp4
+Working Directory: /home/pi/Desktop/PDL
+Timestamp: 2017-07-21 00:18:31.572429
+Reading all 930 frames took 9.816676 seconds. That is 94.736752033 frames per second
+ [x] Process completed. Any errors? Yes
+ [x] Sent All Done! back to client
+ [x] Received 'PDL Container;PDL-15.mp4;30'
+ [x] Successfully downloaded PDL-15.mp4
+Working Directory: /home/pi/Desktop/PDL
+Timestamp: 2017-07-21 00:18:54.041022
+Reading all 1369 frames took 14.629675 seconds. That is 93.576924983 frames per second
+Processing all 1370 frames took 6.950004 seconds. That is 197.122188707 frames per second
+Csenter (T, w, TAU, A, p): (1.3515495900362637, 4.6488751530093699, 20.216704408243633, 31.512514243723466, 0.18641911908430706)
+ [x] Process completed. Any errors? No
+ [x] Sent All Done! back to client
+ [x] Received 'PDL Container;PDL-1.mp4;30'
+ [x] Successfully downloaded PDL-1.mp4
+Working Directory: /home/pi/Desktop/PDL
+Timestamp: 2017-07-21 00:20:07.526253
+Reading all 921 frames took 10.011153 seconds. That is 91.997395305 frames per second
+Processing all 922 frames took 4.849565 seconds. That is 190.120144796 frames per second
+Csenter (T, w, TAU, A, p): (1.2771959576134921, 4.9195154977784679, 9.08917610743163, 22.302726727239598, 0.2967852721020266)
+ [x] Process completed. Any errors? No
+ [x] Sent All Done! back to client
+ [x] Received 'PDL Container;PDL-2.mp4;30'
+ [x] Successfully downloaded PDL-2.mp4
+Working Directory: /home/pi/Desktop/PDL
+Timestamp: 2017-07-21 00:20:33.818644
+Reading all 887 frames took 9.023919 seconds. That is 98.2943220124 frames per second
+Processing all 888 frames took 3.695781 seconds. That is 240.273977273 frames per second
+Csenter (T, w, TAU, A, p): (1.3273809028104386, 4.7335209463058536, 12.453926583781319, 13.916744750618713, 0.50846921236735643)
+ [x] Process completed. Any errors? No
+ [x] Sent All Done! back to client
+ [x] Received 'PDL Container;PDL-3.mp4;30'
+ [x] Successfully downloaded PDL-3.mp4
+Working Directory: /home/pi/Desktop/PDL
+Timestamp: 2017-07-21 00:21:14.457763
+Reading all 920 frames took 9.516656 seconds. That is 96.6726127329 frames per second
+Processing all 921 frames took 4.766537 seconds. That is 193.222039397 frames per second
+Csenter (T, w, TAU, A, p): (1.2918324650285036, 4.863777213588568, 9.6639349272435489, -20.670214619769411, 0.54905951641850193)
+ [x] Process completed. Any errors? No
+ [x] Sent All Done! back to client
+ [x] Received 'PDL Container;PDL-4.mp4;30'
+ [x] Successfully downloaded PDL-4.mp4
+Working Directory: /home/pi/Desktop/PDL
+Timestamp: 2017-07-21 00:21:46.541638
+Reading all 906 frames took 9.38387 seconds. That is 96.548652102 frames per second
+Processing all 907 frames took 4.771338 seconds. That is 190.09342872 frames per second
+Csenter (T, w, TAU, A, p): (1.3021582218255858, 4.8252087971081989, 10.308737472494027, 26.413357092097222, 0.55882834768684853)
+ [x] Process completed. Any errors? No
+ [x] Sent All Done! back to client
+ [x] Received 'PDL Container;PDL-5.mp4;30'
+ [x] Successfully downloaded PDL-5.mp4
+Working Directory: /home/pi/Desktop/PDL
+Timestamp: 2017-07-21 00:22:08.328858
+Reading all 968 frames took 9.949741 seconds. That is 97.2889646072 frames per second
+Processing all 969 frames took 4.713855 seconds. That is 205.564235642 frames per second
+Csenter (T, w, TAU, A, p): (1.3118364561642453, 4.7896102274450856, 10.87774492220103, -30.743874872468869, 0.44940468222542218)
+ [x] Process completed. Any errors? No
+ [x] Sent All Done! back to client
+ [x] Received 'PDL Container;PDL-6.mp4;30'
+ [x] Successfully downloaded PDL-6.mp4
+Working Directory: /home/pi/Desktop/PDL
+Timestamp: 2017-07-21 00:22:35.267599
+Reading all 979 frames took 10.090105 seconds. That is 97.0257494843 frames per second
+Processing all 980 frames took 5.151726 seconds. That is 190.227508218 frames per second
+Csenter (T, w, TAU, A, p): (1.3074193945293922, 4.805791724881999, 10.150055464880301, 31.139435878936098, 0.15656513862063129)
+ [x] Process completed. Any errors? No
+ [x] Sent All Done! back to client
+ [x] Received 'PDL Container;PDL-7.mp4;30'
+ [x] Successfully downloaded PDL-7.mp4
+Working Directory: /home/pi/Desktop/PDL
+Timestamp: 2017-07-21 00:22:59.679809
+Reading all 932 frames took 10.265672 seconds. That is 90.7880166052 frames per second
+Processing all 933 frames took 4.806425 seconds. That is 194.115168758 frames per second
+Csenter (T, w, TAU, A, p): (0.26164608675379858, 24.014061838776449, nan, nan, 0.85018162261570296)
+ [x] Process completed. Any errors? No
+ [x] Sent All Done! back to client
+ [x] Received 'PDL Container;PDL-8.mp4;30'
+ [x] Successfully downloaded PDL-8.mp4
+Working Directory: /home/pi/Desktop/PDL
+Timestamp: 2017-07-21 00:23:22.588022
+Reading all 992 frames took 11.076521 seconds. That is 89.5588064158 frames per second
+Processing all 993 frames took 5.711389 seconds. That is 173.86313557 frames per second
+Csenter (T, w, TAU, A, p): (1.3593137466545142, 4.6223216109183749, 10.679175793928524, 33.032403774302814, 0.022672630316894468)
+ [x] Process completed. Any errors? No
+ [x] Sent All Done! back to client
+ [x] Received 'PDL Container;PDL-9.mp4;30'
+ [x] Successfully downloaded PDL-9.mp4
+Working Directory: /home/pi/Desktop/PDL
+Timestamp: 2017-07-21 00:24:06.418096
+Reading all 755 frames took 7.982357 seconds. That is 94.5835922898 frames per second
+Processing all 756 frames took 3.182447 seconds. That is 237.55305273 frames per second
+Csenter (T, w, TAU, A, p): (1.2803850961260916, 4.9072621402653542, 5.0061049648396345, -27.633211997569671, 0.16080086045125858)
+ [x] Process completed. Any errors? No
+ [x] Sent All Done! back to client
+ [x] Received 'PDL Container;PDL-10.mp4;30'
+ [x] Successfully downloaded PDL-10.mp4
+Working Directory: /home/pi/Desktop/PDL
+Timestamp: 2017-07-21 00:24:24.665753
+Reading all 746 frames took 8.122557 seconds. That is 91.8429996859 frames per second
+Processing all 747 frames took 2.901091 seconds. That is 257.489337632 frames per second
+Csenter (T, w, TAU, A, p): (1.223060542231309, 5.1372643382941305, nan, nan, 0.072819499308784633)
+ [x] Process completed. Any errors? No
+ [x] Sent All Done! back to client
+ [x] Received 'PDL Container;PDL-11.mp4;30'
+ [x] Successfully downloaded PDL-11.mp4
+Working Directory: /home/pi/Desktop/PDL
+Timestamp: 2017-07-21 00:24:44.190869
+Reading all 1095 frames took 11.170469 seconds. That is 98.0263227981 frames per second
+Processing all 1096 frames took 7.30812 seconds. That is 149.970170167 frames per second
+Csenter (T, w, TAU, A, p): (0.17378248632960891, 36.155457548595692, nan, nan, 0.017287042203195411)
+ [x] Process completed. Any errors? No
+ [x] Sent All Done! back to client
+ [x] Received 'PDL Container;PDL-12.mp4;30'
+ [x] Successfully downloaded PDL-12.mp4
+Working Directory: /home/pi/Desktop/PDL
+Timestamp: 2017-07-21 00:25:14.192561
+Reading all 959 frames took 9.764097 seconds. That is 98.2169677339 frames per second
+Processing all 960 frames took 5.621239 seconds. That is 170.780854541 frames per second
+Csenter (T, w, TAU, A, p): (0.22066766183839975, 28.473521017234116, nan, nan, 0.0049055533857745685)
+ [x] Process completed. Any errors? No
+ [x] Sent All Done! back to client
+ [x] Received 'PDL Container;PDL-13.mp4;30'
+ [x] Successfully downloaded PDL-13.mp4
+Working Directory: /home/pi/Desktop/PDL
+Timestamp: 2017-07-21 00:25:35.997409
+Reading all 301 frames took 3.329941 seconds. That is 90.3919919302 frames per second
+Processing all 302 frames took 1.432186 seconds. That is 210.866465669 frames per second
+Csenter (T, w, TAU, A, p): (1.381616580013064, 4.5477054908534571, 22.318757817738003, 33.705940477749671, 0.34362120726114909)
+ [x] Process completed. Any errors? No
+ [x] Sent All Done! back to client
+ [x] Received 'PDL Container;PDL-14.mp4;30'
+ [x] Successfully downloaded PDL-14.mp4
+Working Directory: /home/pi/Desktop/PDL
+Timestamp: 2017-07-21 00:25:49.148841
+Reading all 930 frames took 9.662256 seconds. That is 96.2508134746 frames per second
+ [x] Process completed. Any errors? Yes
+ [x] Sent All Done! back to client
+ [x] Received 'PDL Container;PDL-15.mp4;30'
+ [x] Successfully downloaded PDL-15.mp4
+Working Directory: /home/pi/Desktop/PDL
+Timestamp: 2017-07-21 00:26:05.375980
+Reading all 1369 frames took 14.405387 seconds. That is 95.0338925292 frames per second
+Processing all 1370 frames took 6.851278 seconds. That is 199.962693092 frames per second
+Csenter (T, w, TAU, A, p): (1.3515495900362637, 4.6488751530093699, 20.216704408243633, 31.512514243723466, 0.18641911908430706)
+ [x] Process completed. Any errors? No
+ [x] Sent All Done! back to client
