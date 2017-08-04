@@ -46,6 +46,25 @@ public class PDLServer
 	
 	public PDLServer()
 	{	
+		// Extract os + mq credentials
+		JSONParser parser = new JSONParser();
+		try
+		{
+			JSONObject osJSON = (JSONObject) parser.parse(new FileReader(new File(bin, "credentials.txt")));
+			userId = (String) osJSON.get("userID");
+			password = (String) osJSON.get("password");
+			auth_url = (String) osJSON.get("auth_url");
+			domain = (String) osJSON.get("domainName");
+			project = (String) osJSON.get("project");
+			
+			//TODO: MQ
+			
+		}
+		catch(ParseException ex)
+		{
+			ex.printStackTrace();
+		}
+	
 		// Create the main directory and tmp directory
 		bin.mkdir();
 		tmp.mkdir();
