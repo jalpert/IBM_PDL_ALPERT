@@ -13,15 +13,6 @@ import numpy
 print "Working Directory: " + os.getcwd()
 print "Timestamp: " + str(datetime.datetime.today())
 
-'''def firstFrame(fileName):
-	cap = cv2.VideoCapture(fileName)
-	ret, image = cap.read()
-	if not ret:
-		print("Fatal Error Reading File: " + str(fileName))
-		exit()
-	cap.release()
-	return image'''
-
 def calculateCenter(LeftEdges, RightEdges):
         return numpy.array(zip(LeftEdges, RightEdges)).mean(1)
         
@@ -29,8 +20,8 @@ def calculateCenter(LeftEdges, RightEdges):
 parser = argparse.ArgumentParser(description='Analyze the video and extract oscillation parameters')
 parser.add_argument('file', action='store')
 parser.add_argument('-fps', '--framerate', type=float)
-#parser.add_argument('-b', '--bounds', nargs=4, type=int)
-#parser.add_argument('-l', '--line', nargs=2, type=float)
+parser.add_argument('-b', '--bounds', nargs=4, type=int)
+parser.add_argument('-l', '--line', nargs=2, type=float)
 parser.add_argument('-c', '--calibration', type=float, help='Length calibration (pixels/mm) of the video', default=0)
 parser.add_argument('-f', '--frames', type=int)
 parser.add_argument('-a', '--animate', type=int, default=0, nargs='?', const=1)
@@ -43,9 +34,13 @@ f = args.file[:args.file.find('.')]
 
 # Get the bounds and inspection line and framerate
 args.framerate, ailFrames = getRelevantFrames(args.file)
-args.line, args.bounds = autoInspectionLine(ailFrames)
-croppedFrames = cropAllFrames(grayscale(ailFrames), args.bounds)
-
+if args.bounds is None:
+        args.line, args.bounds = autoInspectionLine(ailFrames)
+        croppedFrames = cropAllFrames(grayscale(ailFrames), args.bounds)
+elif args.line is None:
+        croppedFrames = cropAllFrames(grayscale(ailFrames), args.bounds)
+        args.line = getInspectionLine(croppedFrames[0])
+print(line, bounds)
 # Allow the user to modify the bounds and inspection line
 done = False
 while not done:
