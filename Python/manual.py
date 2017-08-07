@@ -38,7 +38,7 @@ def getInspectionLine(frame, fig=None, verbose=False):
 			if verbose:
 				print('Fit line coefficients in form [m b] is %d' % str(fit))
 			plt.close()
-			return fit
+			return (fit[0], fit[1])
 		
 def getCropBounds(frames, bounds):
         RED = (30, 60, 255)

@@ -20,8 +20,6 @@ def calculateCenter(LeftEdges, RightEdges):
 parser = argparse.ArgumentParser(description='Analyze the video and extract oscillation parameters')
 parser.add_argument('file', action='store')
 parser.add_argument('-fps', '--framerate', type=float)
-parser.add_argument('-b', '--bounds', nargs=4, type=int)
-parser.add_argument('-l', '--line', nargs=2, type=float)
 parser.add_argument('-c', '--calibration', type=float, help='Length calibration (pixels/mm) of the video', default=0)
 parser.add_argument('-f', '--frames', type=int)
 parser.add_argument('-a', '--animate', type=int, default=0, nargs='?', const=1)
@@ -34,13 +32,9 @@ f = args.file[:args.file.find('.')]
 
 # Get the bounds and inspection line and framerate
 args.framerate, ailFrames = getRelevantFrames(args.file)
-if args.bounds is None:
-        args.line, args.bounds = autoInspectionLine(ailFrames)
-        croppedFrames = cropAllFrames(grayscale(ailFrames), args.bounds)
-elif args.line is None:
-        croppedFrames = cropAllFrames(grayscale(ailFrames), args.bounds)
-        args.line = getInspectionLine(croppedFrames[0])
-print(line, bounds)
+args.line, args.bounds = autoInspectionLine(ailFrames)
+croppedFrames = cropAllFrames(grayscale(ailFrames), args.bounds)
+
 # Allow the user to modify the bounds and inspection line
 done = False
 while not done:
@@ -62,7 +56,7 @@ while not done:
                         croppedFrames = cropAllFrames(ailFrames, args.bounds)
                         args.line = getInspectionLine(croppedFrames[0])
                         break
-              
+
 # Get pixel/mm conversion factor
 if args.calibration == 0:
         args.calibration = getLengthCalibration(ailFrames[0])
@@ -83,14 +77,14 @@ vizualize.liveTracking(frames, args.line, args.framerate, zip(LeftEdges, positio
 
 # Convert to actual positions
 positions = positions / args.calibration
-fNums = np.arange(len(positions)) # Array of frame numbers
+fNums = np.arange(len(frames)) # Array of frame numbers
 tt = fNums.astype(float) / args.framerate # Array of frame times
 
 cParams = extractParameters(tt, positions)
 fig = vizualize.plotResults(tt, positions, cParams).savefig(f + '.png', bbox_inches='tight')
 plt.show()
 
-print("Csenter (T, w, TAU, A, p): " + str(cParams))
+print("Fit Parameters (T, w, TAU, A, p): " + str(cParams))
 
 # Write the results to a text file
 file = open(f + '.tsv', 'w')
