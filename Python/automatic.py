@@ -1,3 +1,4 @@
+
 import cv2
 import edgedetection
 import numpy as np
@@ -7,22 +8,27 @@ import random
 
 colors = [ (0, 0, 255), (0, 255, 0), (255, 0, 0), (100, 100, 0), (0, 100, 100), (100, 0, 100) ]
 
-def getRelevantFrames(filename, fNums = 0):
+def getRelevantFrames(filename):
         cap = cv2.VideoCapture(filename)
+        # Get first 100 frames
+        i = 0
         frames = []
-        random.seed()
-        count = 0
-        while True:
-                gap = random.randrange(1, 15)
-                for i in range(gap):
-                        ret, _ = cap.read()
-                        count = count + 1
+        while(i < 100):
                 ret, frame = cap.read()
-                if not ret or (fNums is not 0 and count > fNums):
+                if not ret:
                         break
                 frames.append(frame)
+                i = i + 1
+
+        # Shuffle the order of the frames
+        random.seed()
+        random.shuffle(frames)
+
+        # Get the framerate
+        fps = cap.get(cv2.CAP_PROP_FPS)
         cap.release()
-        return frames
+        
+        return fps, frames
 
 def fitLine(cnt1, cnt2):
 	M = cv2.moments(cnt1)

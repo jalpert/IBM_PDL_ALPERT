@@ -64,7 +64,8 @@ def analyze(frames, line, mode='center', filter_window=35):
 	# Intensities[0] and the first frame's intensity at 300 pixels is Intensities[0][300]
 	time0 = time.clock()
 	Intensities = [] 
-	EdgePositions = []
+	LeftEdges = []
+	RightEdges = []
 	Thresholds = []
 	Backgrounds = []
 	for frame in frames:
@@ -75,14 +76,10 @@ def analyze(frames, line, mode='center', filter_window=35):
 		Thresholds.append(T)
 		Intensities.append(I)
 		# Note, the intensity at the edge position can be derived from interpolation
-		if mode == 'center':
-		# Center position i.e. the mean of the left and right positions
-			EdgePositions.append(np.mean(edges_z))
-		elif mode == 'left':
-			EdgePositions.append(edges_z[0])
-		elif mode == 'right':
-			EdgePositions.append(edges_z[1])
+		
+		LeftEdges.append(edges_z[0])
+                RightEdges.append(edges_z[1])
 			
 	m_time = time.clock() - time0
 	print('Processing all ' + str(len(frames)) + ' frames took ' + str(m_time) + ' seconds. That is ' + str(len(frames)/m_time) + ' frames per second')
-	return (Intensities, EdgePositions, Thresholds)
+	return (LeftEdges, RightEdges, Intensities, Thresholds)

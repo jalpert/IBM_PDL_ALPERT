@@ -5,6 +5,8 @@ from matplotlib import pyplot as plt
 import matplotlib.patches as patches
 import cv2
 import videoread
+import Tkinter as tk
+from scipy.spatial import distance
 
 # Disable keymaps (keyboard shortcuts) for plot windows
 keymaps = ['keymap.all_axes', 'keymap.back', 'keymap.forward', 'keymap.fullscreen', 'keymap.grid', 'keymap.home', 'keymap.pan', 'keymap.quit', 'keymap.save', 'keymap.xscale', 'keymap.yscale', 'keymap.zoom']
@@ -92,4 +94,26 @@ def getCropBounds(frames, bounds):
                         break
 
         return x1, x2, y1, y2
-        
+
+# Prompts the user for a conversion factor between pixels and mm
+def getLengthCalibration(frame):
+        fig = plt.figure(figsize=(12, 8), tight_layout=True)
+        plt.imshow(frame)
+        plt.xticks([]), plt.yticks([])  # to hide tick values on X and Y axis
+
+        plt.title('Pick two points to calibrate length. Double click to remove a point.')
+        length = distance.euclidean(*plt.ginput(2))
+	# Display the dialog box
+	master = tk.Tk()
+	tk.Label(master, text="Conversion").grid(row=0, column=0)
+	entry = tk.Entry(master)
+	entry.grid(row=0, column=1)
+	tk.Label(master, text="mm").grid(row=0, column=2)
+	tk.Button(master, text="Done", command=master.quit).grid(row=1, column=0, sticky=tk.W, pady=4)
+	tk.mainloop()
+	
+	plt.close('all')
+
+        ret = length / float(entry.get())
+        master.destroy()
+        return ret

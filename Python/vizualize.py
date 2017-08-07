@@ -19,8 +19,49 @@ def plotResults(tt, positions, cParams=None):
 			ax.plot(tt, AAA, 'g-', linewidth=3, linestyle='dashed')
 		ax.plot(tt, positions, '.m-', markersize=4)
 		plt.xlabel('Time (s)')
-		plt.ylabel('Position along line of motion (pixels)')
+		plt.ylabel('Position along line of motion (mm)')
 		return fig
+
+# Edges is a list of edge positions. Each element in the list can either be a single value or a tuple of multiple values to plot
+# i.e. Time 0: edges[0] ...
+# Time 1: edges[1] ...
+def liveTracking(frames, line, fps, edges, calibration=1):
+    COLORS = [(255, 0, 0), (0, 255, 0), (0, 0, 255)]
+    time = 0
+    for f, e in zip(frames, edges):
+        # f is a single grayscale frame
+        # e is either a single value or a tuple of values
+        time = time + 1/fps
+
+        # convert frame to color
+        f = cv2.cvtColor(f, cv2.COLOR_GRAY2BGR)
+
+        if type(e) is not tuple:
+            e = [e]
+        
+        # To allow multiple point plotting
+        for x, c in zip(e, COLORS):
+            y = int( line[0] * x + line[1])
+            x = int(x)
+            cv2.circle(f, (x, y), 3, c, -1)
+
+        f = cv2.resize(f, (0, 0), fx=4, fy=4)
+        
+        text = "Time: {:3.1f}".format(time)
+        if len(e) == 1:
+            text = "{} Position: {:3.1f} mm".format(text, e[0]/calibration)
+        else:
+            text = "{} Positions:".format(text)
+            for p in e:
+                text = "{}  {:3.1f} mm".format(text, p/calibration)
+                
+        cv2.putText(f, text, (0, 0), cv2.FONT_HERSHEY_PLAIN, 1, (0, 0, 0), bottomLeftOrigin=True, thickness=2)
+        f = cv2.flip(f, 0)
+        cv2.imshow("Live Tracker. Press Y to continue to results", f)
+        if cv2.waitKey(50) & 0xFF == ord('y'):
+            break
+    cv2.destroyAllWindows()
+        
 
 def animate(Intensities, EdgePositions, Thresholds, speed=1, window=None):
 	length = len(Intensities)
