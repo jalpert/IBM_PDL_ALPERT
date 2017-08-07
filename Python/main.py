@@ -9,6 +9,8 @@ import datetime
 import os
 import cv2
 import numpy
+import tkFileDialog
+import Tkinter as tk
 
 print "Working Directory: " + os.getcwd()
 print "Timestamp: " + str(datetime.datetime.today())
@@ -18,7 +20,7 @@ def calculateCenter(LeftEdges, RightEdges):
         
 
 parser = argparse.ArgumentParser(description='Analyze the video and extract oscillation parameters')
-parser.add_argument('file', action='store')
+parser.add_argument('file', action='store', nargs='?')
 parser.add_argument('-fps', '--framerate', type=float)
 parser.add_argument('-c', '--calibration', type=float, help='Length calibration (pixels/mm) of the video', default=0)
 parser.add_argument('-f', '--frames', type=int)
@@ -26,6 +28,11 @@ parser.add_argument('-a', '--animate', type=int, default=0, nargs='?', const=1)
 parser.add_argument('--mode', choices=['left', 'right', 'center'], default='center')
 parser.add_argument('-w', '--filter_window', type=int, help='Size of the median filter. MUST BE ODD NUMBER!', default=35)
 args = parser.parse_args()
+
+# If no file is given, prompt the user for one
+if(args.file is None):
+        #tk.Tk().withdraw()
+        args.file = tkFileDialog.askopenfilename(initialdir = os.getcwd(), title="Select a video to analyze")
 
 # Filename minus extension
 f = args.file[:args.file.find('.')]
