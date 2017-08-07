@@ -1,5 +1,4 @@
 from manual import *
-from manual import *
 from oscillation_extraction import *
 from edgedetection import *
 from automatic import *
