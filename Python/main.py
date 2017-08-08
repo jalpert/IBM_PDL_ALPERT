@@ -24,8 +24,6 @@ parser.add_argument('file', action='store', nargs='?')
 parser.add_argument('-fps', '--framerate', type=float)
 parser.add_argument('-c', '--calibration', type=float, help='Length calibration (pixels/mm) of the video', default=0)
 parser.add_argument('-f', '--frames', type=int)
-parser.add_argument('-a', '--animate', type=int, default=0, nargs='?', const=1)
-parser.add_argument('--mode', choices=['left', 'right', 'center'], default='center')
 parser.add_argument('-w', '--filter_window', type=int, help='Size of the median filter. MUST BE ODD NUMBER!', default=35)
 args = parser.parse_args()
 
@@ -38,7 +36,7 @@ if(args.file is None):
 f = args.file[:args.file.find('.')]
 
 # Get the bounds and inspection line and framerate
-args.framerate, ailFrames = getRelevantFrames(args.file)
+args.framerate, ailFrames, scaling = getRelevantFrames(args.file)
 args.line, args.bounds = autoInspectionLine(ailFrames)
 croppedFrames = cropAllFrames(grayscale(ailFrames), args.bounds)
 
@@ -69,13 +67,13 @@ if args.calibration == 0:
         args.calibration = getLengthCalibration(ailFrames[0])
 
 # Print out information gathered so far
-print('File: {}\nFramerate: {} fps\nLength Calibration: {} pixels/mm\nBounds: x1={}, x2={}, y1={}, y2={}\nInspection Line: y = {}*x + {}'.format(args.file, args.framerate, args.calibration, *(args.bounds + args.line)))
+print('File: {}\nFramerate: {} fps\nLength Calibration: {} pixels/mm\nScaling Factor: {}\nBounds: x1={}, x2={}, y1={}, y2={}\nInspection Line: y = {}*x + {}'.format(args.file, args.framerate, args.calibration, scaling, *(args.bounds + args.line)))
 
 cv2.destroyAllWindows()
 del ailFrames
 del croppedFrames
 
-frames = readFrames(args.file, bounds=args.bounds, fNums=args.frames)
+frames = readFrames(args.file, scaling, bounds=args.bounds, fNums=args.frames)
 LeftEdges, RightEdges, Intensities, Thresholds = analyze(frames, args.line, mode=args.mode, filter_window=args.filter_window)
 
 # Enable Live Tracking

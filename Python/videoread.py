@@ -1,12 +1,16 @@
 import cv2 
 import time
 import numpy
-def readFrames(fileName, bounds=None, fNums=None):
+def readFrames(fileName, scaling=1, bounds=None, fNums=None):
 	cap = cv2.VideoCapture(fileName)
 	ret, image = cap.read()
 	if not ret:
 		print 'error reading file', fileName
 		exit()
+
+	# Resize
+	if scaling is not 1:
+                image = cv2.resize(image, (0,0), fx=scaling, fy=scaling)
 	
 	# Read all the frames into a list
 	time0 = time.clock()
@@ -19,6 +23,9 @@ def readFrames(fileName, bounds=None, fNums=None):
 		if not ret:
 			cap.release()
 			break
+                # Resize
+                if scaling is not 1:
+                        frame = cv2.resize(frame, (0,0), fx=scaling, fy=scaling)
 	
 		# Convert to grayscale and crop
 		frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)

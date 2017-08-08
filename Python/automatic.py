@@ -7,7 +7,7 @@ from matplotlib import pyplot as plt
 import random
 
 colors = [ (0, 0, 255), (0, 255, 0), (255, 0, 0), (100, 100, 0), (0, 100, 100), (100, 0, 100) ]
-
+MAX_SIZE = 10**6 # 1 megabyte
 def getRelevantFrames(filename):
         cap = cv2.VideoCapture(filename)
         # Get first 100 frames
@@ -17,6 +17,13 @@ def getRelevantFrames(filename):
                 ret, frame = cap.read()
                 if not ret:
                         break
+                # Resize Frame if too large
+                if(frame.size > MAX_SIZE):
+                        scaling = (MAX_SIZE / float(frame.size))**.5
+                        frame = cv2.resize(frame, (0,0), fx=scaling, fy=scaling)
+                else:
+                        scaling = 1
+                
                 frames.append(frame)
                 i = i + 1
 
@@ -28,7 +35,7 @@ def getRelevantFrames(filename):
         fps = cap.get(cv2.CAP_PROP_FPS)
         cap.release()
         
-        return fps, frames
+        return fps, frames, scaling
 
 def fitLine(cnt1, cnt2):
 	M = cv2.moments(cnt1)
