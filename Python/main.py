@@ -22,8 +22,13 @@ parser.add_argument('-c', '--calibration', type=float, help='Length calibration 
 parser.add_argument('-f', '--frames', type=int)
 parser.add_argument('-w', '--filter_window', type=int, help='Size of the median filter. MUST BE ODD NUMBER!', default=35)
 parser.add_argument('-p', '--parabola', type=float, help='Intensity of the upside down parabola added to the image intensity to emphasize values toward the center. Helps eliminate outliers. Integer from 1 to 10, 1 being the smallest and 10 being the largest', default=1)
-parser.add_arguments('-s', '--silent', action='store_true', help='Run fully automatically without any input from the user')
+parser.add_argument('-s', '--silent', action='store_true', help='Run fully automatically without any input from the user')
+parser.add_argument('-a', '--animate', action='store_true', help='Show the animated intensity line plots')
 args = parser.parse_args()
+
+# Print a warning about the calibration coefficient
+if args.silent and args.calibration is 0:
+        print('Warning: No calibration specified. Program will prompt user for input.')
 
 # If no file is given, prompt the user for one
 if(args.file is None):
@@ -77,8 +82,10 @@ LeftEdges, RightEdges, Intensities, Thresholds = analyze(frames, args.line, filt
 
 # Enable Live Tracking
 positions = numpy.array(zip(LeftEdges, RightEdges)).mean(1)
-vizualize.animate(Intensities, positions, Thresholds, speed=3)
-vizualize.liveTracking(frames, args.line, args.framerate, zip(LeftEdges, positions, RightEdges), args.calibration)
+if not args.silent:
+        if args.animate:
+                vizualize.animate(Intensities, positions, Thresholds, speed=3)
+        vizualize.liveTracking(frames, args.line, args.framerate, zip(LeftEdges, positions, RightEdges), args.calibration)
 
 # Convert to actual positions
 positions = positions / args.calibration
@@ -87,7 +94,8 @@ tt = fNums.astype(float) / args.framerate # Array of frame times
 
 cParams = extractParameters(tt, positions)
 fig = vizualize.plotResults(tt, positions, cParams).savefig(f + '.png', bbox_inches='tight')
-plt.show()
+if not args.silent:
+        plt.show()
 
 print("Fit Parameters (T, w, TAU, A, p): " + str(cParams))
 
