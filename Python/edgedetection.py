@@ -57,7 +57,7 @@ def imageIntensity(image, line, filter_window=35):
 def threshold(I):
 	return np.average([np.min(I), max(I)], weights = [.5, .5])
 	
-def analyze(frames, line, mode='center', filter_window=35):
+def analyze(frames, line, filter_window=35):
 	# Analyze all the frames in the video
 	# List of intensity graphs for each frame. Each element is the intensity values
 	# for the frame along the x values of the inspection line. So the first frame's intensity is

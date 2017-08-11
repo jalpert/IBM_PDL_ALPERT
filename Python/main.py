@@ -67,14 +67,15 @@ if args.calibration == 0:
         args.calibration = getLengthCalibration(ailFrames[0])
 
 # Print out information gathered so far
-print('File: {}\nFramerate: {} fps\nLength Calibration: {} pixels/mm\nScaling Factor: {}\nBounds: x1={}, x2={}, y1={}, y2={}\nInspection Line: y = {}*x + {}'.format(args.file, args.framerate, args.calibration, scaling, *(args.bounds + args.line)))
+status = 'File\t{}\nFramerate\t{} fps\nLength Calibration\t{} pixels/mm\nScaling Factor\t{}\nBounds\tx1={}, x2={}, y1={}, y2={}\nInspection Line\ty = {}*x + {}'.format(args.file, args.framerate, args.calibration, scaling, *(args.bounds + args.line))
+print(status)
 
 cv2.destroyAllWindows()
 del ailFrames
 del croppedFrames
 
 frames = readFrames(args.file, scaling, bounds=args.bounds, fNums=args.frames)
-LeftEdges, RightEdges, Intensities, Thresholds = analyze(frames, args.line, mode=args.mode, filter_window=args.filter_window)
+LeftEdges, RightEdges, Intensities, Thresholds = analyze(frames, args.line, filter_window=args.filter_window)
 
 # Enable Live Tracking
 positions = calculateCenter(LeftEdges, RightEdges)
@@ -93,8 +94,8 @@ print("Fit Parameters (T, w, TAU, A, p): " + str(cParams))
 
 # Write the results to a text file
 file = open(f + '.tsv', 'w')
-file.write("Timestamp: " + str(datetime.datetime.today()) + '\n')
-file.write(args.file + "\t" + str(args.framerate) + "\t" + str(len(fNums)) + '\n')
+file.write("Timestamp\t{}\n".format(str(datetime.datetime.today())))
+file.write(status + '\n')
 file.write("T\tw\tTAU\tA\tp\n")
 file.write("%.3f\t%.3f\t%.3f\t%.3f\t%.3f\n" % cParams)
 file.write("Time\tLeft\tCenter\tRight\n")
