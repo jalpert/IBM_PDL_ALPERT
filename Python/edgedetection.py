@@ -7,14 +7,14 @@ import time
 from y_intersection import *
 
 # TODO: average the data from all the frames in the video to get a better function for background noise
-def cleanIntensity(zz, I_0, filter_window, plot=False):
+def cleanIntensity(zz, I_0, filter_window, p, plot=False):
 	# Clean the data using a median filter, and convert back to integers
 	I = signal.medfilt(I_0, filter_window).astype(int)
 	
 	# Subtract a small parabola to reduce the intensity at the edges
 	w = zz.size
 	x = np.array([0, w, w/2])
-	y = np.array([0, 0, max(I)/4])
+	y = np.array([0, 0, max(I)*p/20])
 	yy = np.polyval(np.polyfit(x, y, 2), zz)
 	I = I + yy
 	
@@ -29,7 +29,7 @@ def cleanIntensity(zz, I_0, filter_window, plot=False):
 	return I
 	
 # Takes grayscale frame and gets the image intensity along the line
-def imageIntensity(image, line, filter_window=35):
+def imageIntensity(image, line, filter_window, parabola):
 	height, width = image.shape
 
 	# TODO if |m|>1, transpose the image
@@ -51,13 +51,13 @@ def imageIntensity(image, line, filter_window=35):
 		print(y, i)
 		I.append(i)'''
 	
-	return (zz, cleanIntensity(zz, I, filter_window))
+	return (zz, cleanIntensity(zz, I, filter_window, parabola))
 
 
 def threshold(I):
 	return np.average([np.min(I), max(I)], weights = [.5, .5])
 	
-def analyze(frames, line, filter_window=35):
+def analyze(frames, line, filter_window=35, parabola=1):
 	# Analyze all the frames in the video
 	# List of intensity graphs for each frame. Each element is the intensity values
 	# for the frame along the x values of the inspection line. So the first frame's intensity is
@@ -70,7 +70,7 @@ def analyze(frames, line, filter_window=35):
 	Backgrounds = []
 	for frame in frames:
 		# The cleaned image intensity along the inspection line, with the indexing array zz st I[0] is the leftmost value
-		zz, I = imageIntensity(frame, line, filter_window)
+		zz, I = imageIntensity(frame, line, filter_window, parabola)
 		T = threshold(I)
 		edges_z = y_intersection(zz, I, y_value=T)
 		Thresholds.append(T)

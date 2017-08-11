@@ -15,16 +15,13 @@ import Tkinter as tk
 print "Working Directory: " + os.getcwd()
 print "Timestamp: " + str(datetime.datetime.today())
 
-def calculateCenter(LeftEdges, RightEdges):
-        return numpy.array(zip(LeftEdges, RightEdges)).mean(1)
-        
-
 parser = argparse.ArgumentParser(description='Analyze the video and extract oscillation parameters')
 parser.add_argument('file', action='store', nargs='?')
 parser.add_argument('-fps', '--framerate', type=float)
 parser.add_argument('-c', '--calibration', type=float, help='Length calibration (pixels/mm) of the video', default=0)
 parser.add_argument('-f', '--frames', type=int)
 parser.add_argument('-w', '--filter_window', type=int, help='Size of the median filter. MUST BE ODD NUMBER!', default=35)
+parser.add_argument('-p', '--parabola', type=float, help='Intensity of the upside down parabola added to the image intensity to emphasize values toward the center. Helps eliminate outliers. Integer from 1 to 10, 1 being the smallest and 10 being the largest', default=1)
 args = parser.parse_args()
 
 # If no file is given, prompt the user for one
@@ -75,10 +72,11 @@ del ailFrames
 del croppedFrames
 
 frames = readFrames(args.file, scaling, bounds=args.bounds, fNums=args.frames)
-LeftEdges, RightEdges, Intensities, Thresholds = analyze(frames, args.line, filter_window=args.filter_window)
+LeftEdges, RightEdges, Intensities, Thresholds = analyze(frames, args.line, filter_window=args.filter_window, parabola=args.parabola)
 
 # Enable Live Tracking
-positions = calculateCenter(LeftEdges, RightEdges)
+positions = numpy.array(zip(LeftEdges, RightEdges)).mean(1)
+vizualize.animate(Intensities, positions, Thresholds, speed=3)
 vizualize.liveTracking(frames, args.line, args.framerate, zip(LeftEdges, positions, RightEdges), args.calibration)
 
 # Convert to actual positions
