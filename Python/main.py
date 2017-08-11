@@ -22,6 +22,7 @@ parser.add_argument('-c', '--calibration', type=float, help='Length calibration 
 parser.add_argument('-f', '--frames', type=int)
 parser.add_argument('-w', '--filter_window', type=int, help='Size of the median filter. MUST BE ODD NUMBER!', default=35)
 parser.add_argument('-p', '--parabola', type=float, help='Intensity of the upside down parabola added to the image intensity to emphasize values toward the center. Helps eliminate outliers. Integer from 1 to 10, 1 being the smallest and 10 being the largest', default=1)
+parser.add_arguments('-s', '--silent', action='store_true', help='Run fully automatically without any input from the user')
 args = parser.parse_args()
 
 # If no file is given, prompt the user for one
@@ -38,7 +39,7 @@ args.line, args.bounds = autoInspectionLine(ailFrames)
 croppedFrames = cropAllFrames(grayscale(ailFrames), args.bounds)
 
 # Allow the user to modify the bounds and inspection line
-done = False
+done = args.silent
 while not done:
         left  = (0, int(args.line[1]))
         width = args.bounds[1]-args.bounds[0]
