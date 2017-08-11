@@ -97,7 +97,7 @@ file.write("Timestamp: " + str(datetime.datetime.today()) + '\n')
 file.write(args.file + "\t" + str(args.framerate) + "\t" + str(len(fNums)) + '\n')
 file.write("T\tw\tTAU\tA\tp\n")
 file.write("%.3f\t%.3f\t%.3f\t%.3f\t%.3f\n" % cParams)
-file.write("tt\tPosition\n")
-for t,p in zip(tt, positions):
-	file.write("%.3f\t%.3f\n" % (t,p))
+file.write("Time\tLeft\tCenter\tRight\n")
+for t, l, c, r in zip(tt, LeftEdges, positions, RightEdges):
+	file.write("%.3f\t%.3f\t%.3f\t%.3f\n" % (t, l, c, r))
 file.close()
